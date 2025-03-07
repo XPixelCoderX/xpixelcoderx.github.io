@@ -11,7 +11,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-0YLTCV2MMS");
     </script>
     <title>Loading... - StrongDog XP</title>
@@ -335,7 +334,6 @@
         color: #ff8c00;
       }
 
-      /* Redirect Message Styles */
       #redirectMessage {
         display: none;
         text-align: center;
@@ -355,7 +353,6 @@
         text-decoration: underline;
       }
 
-      /* Responsive Design */
       @media (max-width: 768px) {
         .content {
           flex-direction: column;
@@ -404,7 +401,6 @@
     </div>
 
     <div class="slide-menu" id="slideMenu">
-      <!-- User Details and Menu Options will be dynamically inserted here -->
       <div class="categories">
         <a href="../favs.html" class="option-link">Favorites</a>
         <a href="../about.html" class="option-link"
@@ -471,7 +467,6 @@
       <div class="card-container" id="cardContainer"></div>
     </div>
 
-    <!-- Redirect Message (Optional) -->
     <div id="redirectMessage">
       <h2>Redirecting to the game...</h2>
       <p>
@@ -493,30 +488,29 @@
       const firebaseConfig = {
         apiKey: "AIzaSyBh-VnGiP4qZD0r14gfn9dr77GwtslpTqU",
         authDomain: "strongdog-auth.firebaseapp.com",
-        databaseURL:
-          "https://strongdog-auth-default-rtdb.firebaseio.com",
+        databaseURL: "https://strongdog-auth-default-rtdb.firebaseio.com",
         projectId: "strongdog-auth",
         storageBucket: "strongdog-auth.appspot.com",
         messagingSenderId: "936276282572",
         appId: "1:936276282572:web:a802b7f609381ff9428669",
         measurementId: "G-0YLTCV2MMS",
       };
-
       firebase.initializeApp(firebaseConfig);
+
       const auth = firebase.auth();
       const db = firebase.firestore();
       const rtdb = firebase.database();
 
       function getTierAndProgressFromXP(xp) {
-        const baseXPNeeded = 50; // Starting XP needed
-        const increasePerTier = 200; // Fixed increase after cap
-        const exponentialMultiplier = 1.2; // Multiplier for exponential increase
-        const levelsPerTier = 5; // Levels per tier
-        const capTier = 10; // Cap after this many tiers (50 levels total)
+        const baseXPNeeded = 50;
+        const increasePerTier = 200;
+        const exponentialMultiplier = 1.2;
+        const levelsPerTier = 5;
+        const capTier = 10;
 
         let level = 1;
         let tier = 1;
-        let xpNeeded = baseXPNeeded; // Initial XP needed for the first tier
+        let xpNeeded = baseXPNeeded;
 
         while (xp >= xpNeeded) {
           xp -= xpNeeded;
@@ -551,25 +545,6 @@
       import { siteMapping } from "../site-mapping.js";
 
       document.addEventListener("DOMContentLoaded", async function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const gameId = urlParams.get("id");
-        const gameContainer = document.getElementById("gameContainer");
-        const gameTitleElement = document.getElementById("gameTitle");
-        const favoriteIcon = document.getElementById("favoriteIcon");
-        const fullscreenButton = document.getElementById("fullscreenButton");
-        const redirectMessage = document.getElementById("redirectMessage");
-        const manualRedirectLink =
-          document.getElementById("manualRedirectLink");
-
-        async function fileExists(url) {
-          try {
-            const response = await fetch(url, { method: "HEAD" });
-            return response.ok;
-          } catch {
-            return false;
-          }
-        }
-
         function getCurrentKeyHostOnly() {
           const host = window.location.host;
           return host;
@@ -583,13 +558,25 @@
 
           const arr = siteMapping[currentKey];
           if (!arr) {
-            return "../";
+            if (page === 2) {
+              return "../strongdog2/";
+            } else if (page === 3) {
+              return "../strongdog3/";
+            } else {
+              return "../";
+            }
           }
           const index = page - 2;
           if (arr[index]) {
             return arr[index].replace(/^\.\/$/, "../");
           } else {
-            return "../";
+            if (page === 2) {
+              return "../strongdog2/";
+            } else if (page === 3) {
+              return "../strongdog3/";
+            } else {
+              return "../";
+            }
           }
         }
 
@@ -610,7 +597,6 @@
           return finalPath;
         }
 
-        // Modify getEmbedPath function to add new logic
         async function getEmbedPath(adjustedHref, originalHref, page) {
           let cleanHref = adjustedHref
             .replace(/index\.html$/, "")
@@ -627,7 +613,6 @@
             cleanHref + "base.html",
           ];
 
-          // New logic: Check the file referenced by the cards-data.js embedding logic
           try {
             const response = await fetch(adjustedHref, { method: "GET" });
             if (response.ok) {
@@ -650,22 +635,29 @@
             );
           }
 
-          // Original paths to try
           for (const path of pathsToTry) {
             if (await fileExists(path)) {
               return path;
             }
           }
 
-          // Fallback: Return the original href
           return adjustHrefPath(originalHref, page);
+        }
+
+        async function fileExists(url) {
+          try {
+            const response = await fetch(url, { method: "HEAD" });
+            return response.ok;
+          } catch {
+            return false;
+          }
         }
 
         function embedGame(gamePath, title) {
           const iframe = document.createElement("iframe");
           iframe.src = gamePath;
           iframe.onload = function () {
-            iframe.contentWindow.focus(); // Automatically focus on the iframe after loading
+            iframe.contentWindow.focus();
           };
           gameContainer.innerHTML = "";
           gameContainer.appendChild(iframe);
@@ -676,9 +668,7 @@
             fetch(
               "https://script.google.com/macros/s/AKfycbx1xYwL2QqkOQHyeCWIVSMVLP_XXts5zpb0M-vbvlRl1MpRYYcv4NI-i8OaGc0YP0wpsg/exec?title=" +
                 encodeURIComponent(title),
-              {
-                method: "GET",
-              }
+              { method: "GET" }
             )
               .then((response) => response.text())
               .then((result) => console.log("[DEBUG] View recorded:", result))
@@ -689,6 +679,16 @@
         }
 
         let selectedGame = null;
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get("id");
+        const gameContainer = document.getElementById("gameContainer");
+        const gameTitleElement = document.getElementById("gameTitle");
+        const favoriteIcon = document.getElementById("favoriteIcon");
+        const fullscreenButton = document.getElementById("fullscreenButton");
+        const redirectMessage = document.getElementById("redirectMessage");
+        const manualRedirectLink =
+          document.getElementById("manualRedirectLink");
+
         if (gameId) {
           const idNum = parseInt(gameId, 10);
           selectedGame = games.find((g) => g.id === idNum);
@@ -700,7 +700,10 @@
         if (!selectedGame) {
           embedGame("../404.html", "Not Found");
         } else {
-          const normalGameIds = [250, 244, 605, 130, 729, 742, 743, 744, 745, 757, 759, 760, 761, 762];
+          const normalGameIds = [
+            250, 244, 605, 130, 729, 742, 743, 744, 745, 757, 759, 760, 761,
+            762,
+          ];
           if (normalGameIds.includes(selectedGame.id)) {
             document.title = "Redirecting... - StrongDog XP";
             redirectMessage.style.display = "block";
@@ -738,37 +741,31 @@
           );
           embedGame(embedPath, selectedGame.name);
 
-          // Initialize favorites
           let userFavorites = new Set();
-
-          // Function to update the favorite icon based on current favorite status
           function updateFavoriteIcon() {
             if (userFavorites.has(selectedGame.id)) {
-              favoriteIcon.innerHTML = "&#9733;"; // Filled star
+              favoriteIcon.innerHTML = "&#9733;";
               favoriteIcon.style.color = "gold";
             } else {
-              favoriteIcon.innerHTML = "&#9734;"; // Empty star
+              favoriteIcon.innerHTML = "&#9734;";
               favoriteIcon.style.color = "white";
             }
           }
 
-          // Function to toggle favorite status
           async function toggleFavorite() {
             const user = auth.currentUser;
             if (!user) {
               alert("Please sign in to favorite a game!");
               return;
             }
-
             const favRef = db.collection("favs").doc(user.uid);
+
             if (userFavorites.has(selectedGame.id)) {
-              // Remove from favorites
               await favRef.update({
                 [selectedGame.id]: firebase.firestore.FieldValue.delete(),
               });
               userFavorites.delete(selectedGame.id);
             } else {
-              // Add to favorites
               await favRef.set(
                 {
                   [selectedGame.id]: true,
@@ -780,7 +777,6 @@
             updateFavoriteIcon();
           }
 
-          // Function to load favorites from Firestore
           async function loadFavorites() {
             const user = auth.currentUser;
             if (user) {
@@ -800,17 +796,13 @@
             }
           }
 
-          // Listen for authentication state changes to load favorites accordingly
           auth.onAuthStateChanged((user) => {
             loadFavorites();
           });
 
-          // Event listener for favorite icon click
           favoriteIcon.addEventListener("click", function () {
             toggleFavorite();
           });
-
-          // (Note: The Firebase Realtime Database connection tracking code has been removed.)
 
           fullscreenButton.addEventListener("click", function () {
             if (gameContainer.requestFullscreen) {
@@ -874,10 +866,7 @@
           });
         }
 
-        // Enhanced Activity Tracking Starts Here
         let lastActivityTime = Date.now();
-
-        // List of events that indicate user activity
         const activityEvents = [
           "mousemove",
           "keydown",
@@ -885,8 +874,6 @@
           "touchstart",
           "scroll",
         ];
-
-        // Update lastActivityTime on any of the above events
         activityEvents.forEach((event) => {
           document.addEventListener(event, () => {
             lastActivityTime = Date.now();
@@ -895,34 +882,32 @@
 
         auth.onAuthStateChanged((user) => {
           if (user) {
-            // Add XP every minute if user is active, and also add 1 point each time XP is added
             setInterval(() => {
               if (Date.now() - lastActivityTime <= 3 * 60 * 1000) {
-                const xpRef = rtdb.ref(`xp/${user.uid}`);
+                const xpRef = rtdb.ref(`users/${user.uid}/xp`);
                 xpRef.transaction((currentXP) => (currentXP || 0) + 10);
 
-                const pointsRef = rtdb.ref(`points/${user.uid}`);
+                const pointsRef = rtdb.ref(`users/${user.uid}/points`);
                 pointsRef.transaction(
                   (currentPoints) => (currentPoints || 0) + 1
                 );
               }
-            }, 60 * 1000); // Every 1 minute
+            }, 60 * 1000);
           }
         });
-        // Enhanced Activity Tracking Ends Here
 
-        // Optional: Handle manual redirect if automatic redirection fails
         manualRedirectLink.addEventListener("click", function (e) {
           e.preventDefault();
-          if (selectedGame && selectedGame.href) {
-            window.location.href = "../" + selectedGame.href;
+          const selectedId = urlParams.get("id");
+          const sGame = games.find((g) => g.id == selectedId);
+          if (sGame && sGame.href) {
+            window.location.href = "../" + sGame.href;
           }
         });
       });
     </script>
 
     <script>
-      // Sidebar open/close logic and user info
       document.addEventListener("DOMContentLoaded", function () {
         const menuIcon = document.getElementById("menuIcon");
         const slideMenu = document.getElementById("slideMenu");
@@ -964,7 +949,6 @@
 
           profileTopContainer.appendChild(profilePictureContainer);
           profileTopContainer.appendChild(usernameContainer);
-
           userDetailsContainer.appendChild(profileTopContainer);
 
           const xpContainer = document.createElement("div");
@@ -1000,14 +984,13 @@
               usernameElement.textContent = user.displayName || "Username";
             }
 
-            const xpRef = rtdb.ref(`xp/${userId}`);
+            const xpRef = rtdb.ref(`users/${userId}/xp`);
             xpRef.on("value", (snapshot) => {
               let totalXP = snapshot.exists() ? snapshot.val() : 0;
               const { level, tier, currentXP, xpNeededForNext } =
                 getTierAndProgressFromXP(totalXP);
 
               xpLevelText.textContent = `Level ${level}`;
-
               const fillPercent = (currentXP / xpNeededForNext) * 100;
               xpBarFill.style.width = `${fillPercent}%`;
               xpBarText.textContent = `${currentXP}/${xpNeededForNext}`;
@@ -1124,6 +1107,7 @@
         }
       });
     </script>
+
     <script>
       document.addEventListener("DOMContentLoaded", async function () {
         const specialGameIds = [739, 749];
@@ -1144,11 +1128,9 @@
             }
 
             const scriptContent = await response.text();
-
             const scriptElement = document.createElement("script");
             scriptElement.type = "text/javascript";
             scriptElement.text = scriptContent;
-
             document.body.appendChild(scriptElement);
           } catch (error) {
             console.error(
