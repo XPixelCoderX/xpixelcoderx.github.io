@@ -1,4 +1,8 @@
 export default [
+  { href: './html/Patricks parabox/index.html', imgSrc: 'patricks parabox.jpg', name: 'Patricks parabox' , 'page': 4, 'id': 1081 },
+  { href: './html/brain test 3 tricky quests/index.html', imgSrc: 'brain test 3 tricky quests.png', name: 'brain test 3 tricky quests' , 'page': 4, 'id': 1003 },
+  { href: './html/cave blast/index.html', imgSrc: 'cave blast.jpg', name: 'cave blast' , 'page': 4, 'id': 1024 },
+  { href: './html/Switchblade/index.html', imgSrc: 'Switchblade.jpg', name: 'Switchblade' , 'page': 4, 'id': 1084 },
   { href: './html/rio rex/index.html', imgSrc: 'rio rex.jpg', name: 'rio rex' , 'page': 3, 'id': 869 },
   { href: './html/plactions/index.html', imgSrc: 'plactions.png', name: 'plactions' , 'page': 4, 'id': 920 },
   { href: './html/rally champion/index.html', imgSrc: 'rally champion.jpg', name: 'rally champion' , 'page': 3, 'id': 866 },
