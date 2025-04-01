@@ -1,7 +1,5 @@
 export default [
       { href: './html/territorial.io new/index.html', imgSrc: 'territorial.io new.jpg', name: 'territorial.io new' , 'page': 4, 'id': 1089 },
-      { href: './html/hexarena.io 3d/index.html', imgSrc: 'hexarena.io 3d.png', name: 'hexarena.io 3d' , 'page': 4, 'id': 1088 },
-      { href: './html/fancade/index.html', imgSrc: 'fancade.jpg', name: 'fancade' , 'page': 4, 'id': 1087 },
       { href: './swf/ragdoll achievement/index.html', imgSrc: 'ragdoll achievement.jpg', name: 'ragdoll achievement 1' , 'page': 4, 'id': 1086 },
       { href: './swf/arcane weapons/index.html', imgSrc: 'arcane weapons.jpg', name: 'arcane weapons' , 'page': 4, 'id': 1085 },
       { href: './html/Ragdoll Archers/index.html', imgSrc: 'ragdoll archers.jpg', name: 'Ragdoll Archers' , 'page': 4, 'id': 1082 },
@@ -43,8 +41,6 @@ export default [
       { href: './html/city car driving stunt master/index.html', imgSrc: 'city car driving stunt master.jpg', name: 'city car driving stunt master' , 'page': 4, 'id': 1028 },
       { href: './html/city bike stunt 2/index.html', imgSrc: 'city bike stunt 2.jpg', name: 'city bike stunt 2' , 'page': 4, 'id': 1027 },
       { href: './html/chess arena/index.html', imgSrc: 'chess arena.jpg', name: 'chess arena' , 'page': 4, 'id': 1025 },
-      { href: './html/cats/index.html', imgSrc: 'cats.jpg', name: 'cats' , 'page': 4, 'id': 1023 },
-      { href: './html/catpad/index.html', imgSrc: 'catpad.jpg', name: 'catpad' , 'page': 4, 'id': 1022 },
       { href: './html/cat trap/index.html', imgSrc: 'cat trap.png', name: 'cat trap' , 'page': 4, 'id': 1021 },
       { href: './html/cat gunner super zombie shoot/index.html', imgSrc: 'cat gunner super zombie shoot.jpg', name: 'cat gunner super zombie shoot' , 'page': 4, 'id': 1020 },
       { href: './html/cars thief tank edition/index.html', imgSrc: 'cars thief tank edition.jpg', name: 'cars thief tank edition' , 'page': 4, 'id': 1019 },

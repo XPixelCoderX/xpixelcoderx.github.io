@@ -1,4 +1,8 @@
 export default [
+  { href: './html/fancade/index.html', imgSrc: 'fancade.jpg', name: 'fancade' , 'page': 4, 'id': 1087 },
+  { href: './html/hexarena.io 3d/index.html', imgSrc: 'hexarena.io 3d.png', name: 'hexarena.io 3d' , 'page': 4, 'id': 1088 },
+  { href: './html/cats/index.html', imgSrc: 'cats.jpg', name: 'cats' , 'page': 4, 'id': 1023 },
+  { href: './html/catpad/index.html', imgSrc: 'catpad.jpg', name: 'catpad' , 'page': 4, 'id': 1022 },
   { href: './html/ape sling/index.html', imgSrc: 'ape sling.jpg', name: 'ape sling' , 'page': 4, 'id': 1066 },
   { href: './swf/effing worms 2/index.html', imgSrc: 'effing worms 2.jpg', name: 'effing worms 2' , 'page': 4, 'id': 1079 },
   { href: './html/armedforces.io/index.html', imgSrc: 'armedforces.io.jpg', name: 'armedforces.io' , 'page': 4, 'id': 1073 },
