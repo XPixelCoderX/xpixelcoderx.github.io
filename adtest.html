@@ -409,8 +409,7 @@
     </div>
     <div class="updates-text-container">
       <p class="updates-paragraph-text">
-        Dont forget to join the
-        <a href="https://discord.gg/pWjfQ4Sz5c">discord</a> for exclusive links!
+        No! The april fools update! It's gone! (The april fools update has been removed, hope you guys liked it :D)
       </p>
     </div>
     <div class="modal" id="popupModal">
@@ -1331,6 +1330,33 @@
         });
       })();
     </script>
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    if(typeof games==="undefined"){return}
+    function r(n,o){return Math.floor(Math.random()*(o-n+1))+n}
+    function t(){
+      return'<div class="card ad-card" style="text-align:center;">'
+        +'<'+'script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1609993827735056" crossorigin="anonymous">'+'<'+'/script>'
+        +'<ins class="adsbygoogle" style="display:inline-block;width:120px;height:120px" data-ad-client="ca-pub-1609993827735056" data-ad-slot="8276248719"></ins>'
+        +'<'+'script>(adsbygoogle=window.adsbygoogle||[]).push({});<'+'/script>'
+        +'</div>'
+    }
+    function i(n){
+      return'<a href="./play/?id='+n.id+'" class="card" data-game-id="'+n.id+'" data-page="'+n.page+'"><img src="./img/'+n.imgSrc+'" alt="'+n.name+'"><figcaption>'+n.name+'</figcaption></a>'
+    }
+    var c=document.getElementById("allGameList");if(!c){return}
+    var e=[],a=r(7,12)
+    for(var d=0;d<games.length;d++){
+      e.push(i(games[d]))
+      a--
+      if(a===0){
+        e.push(t())
+        a=r(7,12)
+      }
+    }
+    c.innerHTML=e.join("")
+  })
+  </script>  
     <div
       style="
         position: absolute;
