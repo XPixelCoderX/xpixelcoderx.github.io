@@ -1,4 +1,12 @@
 export default [
+  { href: './html/among us online edition/index.html', imgSrc: 'among us online edition.jpg', name: 'among us online edition' , 'page': 4, 'id': 1060 },
+  { href: './html/8bit fiesta/index.html', imgSrc: '8bit fiesta.jpg', name: '8bit fiesta' , 'page': 4, 'id': 1048 },
+  { href: './html/more ore/index.html', imgSrc: 'more ore.jpg', name: 'more ore' , 'page': 4, 'id': 1125 },
+  { href: './html/slice it all/index.html', imgSrc: 'slice it all.jpg', name: 'slice it all' , 'page': 4, 'id': 1131 },
+  { href: './html/trimps updated/index.html', imgSrc: 'trimps updated.jpg', name: 'trimps updated' , 'page': 4, 'id': 1142 },
+  { href: './html/awesome tanks 2/index.html', imgSrc: 'awesome tanks 2.png', name: 'awesome tanks 2' , 'page': 4, 'id': 1096 },
+  { href: './swf/dead tree defender/index.html', imgSrc: 'dead tree defender.jpg', name: 'dead tree defender' , 'page': 4, 'id': 1147 },
+  { href: './swf/territory war/index.html', imgSrc: 'territory war.jpg', name: 'territory war' , 'page': 4, 'id': 1150 },
   { href: './html/short ride/index.html', imgSrc: 'short ride.jpg', name: 'short ride' , 'page': 3, 'id': 883 },
   { href: './html/short life/index.html', imgSrc: 'short life.jpg', name: 'short life' , 'page': 3, 'id': 882 },
   { href: './html/fancade/index.html', imgSrc: 'fancade.jpg', name: 'fancade' , 'page': 4, 'id': 1087 },
