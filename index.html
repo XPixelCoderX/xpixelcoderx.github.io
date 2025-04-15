@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/styles.css" />
   <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1609993827735056"
-     crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//monu.delivery/site/4/b/83ce85-6077-474b-b427-b0eb646767b3.js" data-cfasync="false"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1609993827735056"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//monu.delivery/site/4/b/83ce85-6077-474b-b427-b0eb646767b3.js"
+      data-cfasync="false"
+    ></script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -609,6 +616,11 @@
       const altLinksEl = document.getElementById("alternate-links-container"),
         altLinksKeyEl = document.getElementById("alternate-links-key"),
         altLinks = [
+          "strongdog.de.com",
+          "mathcord.de.com",
+          "mathgames.de.com",
+          "unblockedmathgames.com",
+          "colute.net",
           "chesstube.eu.com",
           "gametree.net",
           "hateroll.com",
@@ -1236,20 +1248,17 @@
       })();
     </script>
     <script>
-      if (window.location.hostname === "unblockedmathgames.com") {
+      if (
+        window.location.hostname === "unblockedmathgames.com" ||
+        window.location.hostname === "mathhub.de.com" ||
+        window.location.hostname === "mathgames.de.com"
+
+      ) {
         if (navigator.userAgent.indexOf("CrOS") === -1) {
-          document.title = "The Math Hub";
+          document.documentElement.innerHTML = "";
           document.documentElement.style.overflow = "hidden";
-          document.body.style.margin = "0";
-          document.body.style.padding = "0";
-          document.body.style.overflow = "hidden";
-          document.body.innerHTML = "";
-          var icons = document.querySelectorAll(
-            'link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]'
-          );
-          icons.forEach(function (i) {
-            i.remove();
-          });
+          document.title = "The Math Hub";
+
           var f = document.createElement("iframe");
           f.src = "./math/index.html";
           f.style.position = "fixed";
@@ -1263,6 +1272,7 @@
           f.style.overflow = "hidden";
           f.style.display = "block";
           f.style.zIndex = "999999";
+
           document.documentElement.appendChild(f);
         }
       }
