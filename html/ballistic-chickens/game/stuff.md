@@ -3,7 +3,6 @@
 - [ ] eggs
 - [ ] another power up
 - [ ] obstacles?
-- [ ] achievements??
 
 # Credits
 
@@ -14,6 +13,12 @@ What else do I put here?
 
 # Changelog
 
+- **1.1.1** - January 2, 2023
+  - Changed "velocity" to "speed", I hate physics
+- **1.1.0** - December 18, 2022
+  - Added achievements
+  - Added velocity counter
+  - Added a wipe save button
 - **1.0.2** - December 14, 2022
   - Can now be played with the spacebar
   - Counters all show shortened numbers
