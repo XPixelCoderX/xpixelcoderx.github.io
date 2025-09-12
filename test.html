@@ -238,7 +238,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById("allGameList").innerHTML =
+        document.getElementById("allGame").innerHTML =
           cardsHTMLArr.join("");
         addCardButtonListeners();
       });
@@ -370,7 +370,7 @@
         }
         function findMatchingCard(gameName) {
           const formattedGameName = normalizeGameName(gameName);
-          const cards = document.querySelectorAll("#allGameList .card");
+          const cards = document.querySelectorAll("#allGame .card");
           for (let card of cards) {
             const cardGameId = card.getAttribute("data-game-id");
             if (cardGameId === formattedGameName) {
@@ -961,7 +961,7 @@
     </div>
 
     <h2 style="text-align: center"><strong>All</strong></h2>
-    <div class="games-grid" id="allGameList"></div>
+    <div class="games-grid" id="allGame"></div>
 
     <h2 style="text-align: center"><strong>StrongDogXP LLC</strong></h2>
     <div class="news-container">
@@ -1071,7 +1071,7 @@
       </div>
       <div class="categories">
         <a href="favs.html" class="option-link">Favorites</a>
-        <a href="#" id="randomGame" class="option-link">Random Game</a>
+        <a href="#" id="randomGame" class="option-link">Random</a>
         <a href="#" id="blockLanschool" class="option-link">Block Lanschool</a>
         <a href="about.html" class="option-link"
           >About / Report Bugs / Request Games</a
