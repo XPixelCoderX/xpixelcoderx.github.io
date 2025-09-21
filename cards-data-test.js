@@ -1,4 +1,7 @@
 export default [
+      
+      { href: './html/Solar Smash/index.html', imgSrc: 'Solar Smash.jpeg', name: 'Solar Smash' , 'page': 5, 'id': 145 },
+      { href: './html/clash royale/index.html', imgSrc: 'clash royale.jpeg', name: 'Clash Royale (ripoff)' , 'page': 5, 'id': 945 },
       { href: './html/1v1.lol/index.html', imgSrc: '1v1.lol.unknown', name: '1v1.lol' , 'page': 4, 'id': 1152 },
       { href: './swf/stickwar/index.html', imgSrc: 'stickwar.jpg', name: 'stickwar' , 'page': 4, 'id': 1149 },
       { href: './swf/sniper assasin 4/index.html', imgSrc: 'sniper assasin 4.jpg', name: 'sniper assasin 4' , 'page': 4, 'id': 1148 },
